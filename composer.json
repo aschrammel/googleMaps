@@ -1,0 +1,21 @@
+{
+    "name": "aschrammel/googleMaps",
+    "description": "A wrapper for the Google Maps API",
+    "version": "v0.0.1-alpha",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Dipl.-Ing. Andreas Schrammel, BSc.",
+            "email": "andreas@schrammel.codes",
+            "role": "developer"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Schrammel\\Google\\AddressSearch\\": "src/Google/AddressSearch/"
+        }
+    }
+}
