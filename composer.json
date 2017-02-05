@@ -1,5 +1,5 @@
 {
-    "name": "aschrammel/googleMaps",
+    "name": "aschrammel/google-maps",
     "description": "A wrapper for the Google Maps API",
     "version": "v0.0.1-alpha",
     "type": "library",
