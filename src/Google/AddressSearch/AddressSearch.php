@@ -8,7 +8,12 @@ class AddressSearch
 {
     private $results;
     
-    public function searchAddress($address)
+    /**
+     * Fetch location data for given address
+     *
+     * @param string $address
+     */
+    public function searchAddress(string $address): void
     {
         $informationJson = $this->getAddress($address);
         $informationArray = json_decode($informationJson, true);
