@@ -1,12 +1,20 @@
 <?php
 namespace Schrammel\Google\AddressSearch;
 
+use Dotenv\Dotenv;
 use Exception;
 use GuzzleHttp\Client;
 
 class AddressSearch
 {
     private $results;
+    
+    
+    public function __construct()
+    {
+        $dotenv = new Dotenv(__DIR__);
+        $dotenv->load();
+    }
     
     /**
      * Fetch location data for given address
@@ -117,7 +125,7 @@ class AddressSearch
         $address = $this->prepareAddress($address);
     
         try {
-            $uri = 'http://maps.google.com/maps/api/geocode/json?sensor=false&address=' . $address;
+            $uri = 'http://maps.google.com/maps/api/geocode/json?sensor=false&address=' . $address . '&key=' . getenv('GM_API_KEY');
             $client = new Client();
             $response = $client->get($uri);
             
