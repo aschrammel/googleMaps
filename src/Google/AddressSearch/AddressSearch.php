@@ -12,8 +12,10 @@ class AddressSearch
     
     public function __construct()
     {
-        $dotenv = new Dotenv(__DIR__);
-        $dotenv->load();
+        if (is_file(__DIR__ . '/.env')) {
+            $dotenv = new Dotenv(__DIR__);
+            $dotenv->load();
+        }
     }
     
     /**
@@ -125,7 +127,8 @@ class AddressSearch
         $address = $this->prepareAddress($address);
     
         try {
-            $uri = 'http://maps.google.com/maps/api/geocode/json?sensor=false&address=' . $address . '&key=' . getenv('GM_API_KEY');
+            $apiKey = getenv('GM_API_KEY');
+            $uri = 'https://maps.google.com/maps/api/geocode/json?sensor=false&address=' . $address . '&key=' . $apiKey;
             $client = new Client();
             $response = $client->get($uri);
             
